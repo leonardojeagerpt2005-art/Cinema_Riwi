@@ -35,6 +35,24 @@
       "name": "lolo",
       "email": "lolo@gmail.com",
       "password": "1234"
+    },
+    {
+      "id": 1786554443954,
+      "name": "jaime",
+      "email": "jaime@gamil.com",
+      "password": "12345678"
+    },
+    {
+      "id": 1786554540900,
+      "name": "jaime@gmail.com",
+      "email": "jaime@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": 1787052713104,
+      "name": "maria clara",
+      "email": "maria@gmail.com",
+      "password": "12345678"
     }
   ],
   "movies": [
@@ -120,12 +138,13 @@
     },
     {
       "id": 6,
-      "title": "Ecos del Ayer",
+      "title": "La Odisea",
       "genre": "Drama",
-      "duration": "121 min",
-      "rating": "8.1",
-      "poster": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
-      "synopsis": "Una restauradora de cine vuelve a su pueblo natal para recuperar una película perdida y enfrentar los recuerdos que dejó atrás.",
+      "duration": "148 min",
+      "rating": "8.3",
+      "poster": "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&q=80&w=800",
+      "video": "/videos/la-odisea.mp4",
+      "synopsis": "Un héroe emprende un peligroso viaje de regreso a casa, enfrentando mares desconocidos, criaturas míticas y el paso del tiempo.",
       "showtimes": [
         "15:30",
         "18:45",
@@ -210,68 +229,6 @@
       ],
       "total": 25,
       "createdAt": "2026-08-10T16:55:50.670Z"
-    },
-    {
-      "id": 1786543021479,
-      "userId": 1,
-      "userEmail": "demo@riwicinema.com",
-      "movieId": 1,
-      "movieTitle": "Thor",
-      "poster": "https://image.tmdb.org/t/p/w500/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg",
-      "showtime": "14:30",
-      "date": "Hoy, 10 Ago",
-      "seats": [
-        "A1"
-      ],
-      "total": 12.5,
-      "createdAt": "2026-08-12T13:57:01.469Z"
-    },
-    {
-      "id": 1786543042344,
-      "userId": 1,
-      "userEmail": "demo@riwicinema.com",
-      "movieId": 4,
-      "movieTitle": "Código Negro",
-      "poster": "https://cdn.colombia.com/cine/2025/3/codigo-negro-44726.jpg",
-      "showtime": "13:45",
-      "date": "Hoy, 10 Ago",
-      "seats": [
-        "F3",
-        "F7"
-      ],
-      "total": 26,
-      "createdAt": "2026-08-12T13:57:22.342Z"
-    },
-    {
-      "id": 1786545067245,
-      "userId": 1,
-      "userEmail": "demo@riwicinema.com",
-      "movieId": 2,
-      "movieTitle": "El Secreto del Abismo",
-      "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8fd5MFF7Lmng6za5mD7VERshs7YNAX9S2Tw07yki2g&s",
-      "showtime": "15:00",
-      "date": "Hoy, 10 Ago",
-      "seats": [
-        "B5"
-      ],
-      "total": 11,
-      "createdAt": "2026-08-12T14:31:07.243Z"
-    },
-    {
-      "id": 1786545190473,
-      "userId": 1,
-      "userEmail": "demo@riwicinema.com",
-      "movieId": 1,
-      "movieTitle": "Thor",
-      "poster": "https://image.tmdb.org/t/p/w500/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg",
-      "showtime": "21:30",
-      "date": "Hoy, 10 Ago",
-      "seats": [
-        "B5",
-        "F6"
-      ],
-      "total": 25,
-      "createdAt": "2026-08-12T14:33:10.469Z"
     }
   ],
   "support": [
@@ -284,5 +241,219 @@
       "recipient": "yunpapicodsito@gmail.com",
       "status": "Enviado con éxito a soporte"
     }
-  ]
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "movieId": 3,
+      "movieTitle": "Spider-Man: Brand New Day",
+      "notificationDate": "2026-08-20",
+      "channel": "email",
+      "message": "Spider-Man: Brand New Day llega muy pronto a Cinema Riwi.",
+      "status": "Programada",
+      "createdAt": "2026-08-14T10:00:00.000Z"
+    }
+  ],
+  "showtimes": [
+    {
+      "id": 1,
+      "movieId": 1,
+      "movieTitle": "Thor",
+      "time": "14:30",
+      "date": "2026-08-14",
+      "room": "Sala 1",
+      "format": "IMAX",
+      "price": 12.5,
+      "availableSeats": 120
+    },
+    {
+      "id": 2,
+      "movieId": 1,
+      "movieTitle": "Thor",
+      "time": "18:00",
+      "date": "2026-08-14",
+      "room": "Sala 1",
+      "format": "IMAX",
+      "price": 12.5,
+      "availableSeats": 120
+    },
+    {
+      "id": 3,
+      "movieId": 1,
+      "movieTitle": "Thor",
+      "time": "21:30",
+      "date": "2026-08-14",
+      "room": "Sala 1",
+      "format": "IMAX",
+      "price": 12.5,
+      "availableSeats": 120
+    },
+    {
+      "id": 4,
+      "movieId": 2,
+      "movieTitle": "El Secreto del Abismo",
+      "time": "15:00",
+      "date": "2026-08-14",
+      "room": "Sala 2",
+      "format": "2D",
+      "price": 11,
+      "availableSeats": 100
+    },
+    {
+      "id": 5,
+      "movieId": 2,
+      "movieTitle": "El Secreto del Abismo",
+      "time": "19:00",
+      "date": "2026-08-14",
+      "room": "Sala 2",
+      "format": "2D",
+      "price": 11,
+      "availableSeats": 100
+    },
+    {
+      "id": 6,
+      "movieId": 2,
+      "movieTitle": "El Secreto del Abismo",
+      "time": "22:00",
+      "date": "2026-08-14",
+      "room": "Sala 2",
+      "format": "2D",
+      "price": 11,
+      "availableSeats": 100
+    },
+    {
+      "id": 7,
+      "movieId": 3,
+      "movieTitle": "Spider-Man: Brand New Day",
+      "time": "16:15",
+      "date": "2026-08-14",
+      "room": "Sala 3",
+      "format": "IMAX",
+      "price": 10,
+      "availableSeats": 120
+    },
+    {
+      "id": 8,
+      "movieId": 3,
+      "movieTitle": "Spider-Man: Brand New Day",
+      "time": "19:45",
+      "date": "2026-08-14",
+      "room": "Sala 3",
+      "format": "IMAX",
+      "price": 10,
+      "availableSeats": 120
+    },
+    {
+      "id": 9,
+      "movieId": 3,
+      "movieTitle": "Spider-Man: Brand New Day",
+      "time": "22:30",
+      "date": "2026-08-14",
+      "room": "Sala 3",
+      "format": "IMAX",
+      "price": 10,
+      "availableSeats": 120
+    },
+    {
+      "id": 10,
+      "movieId": 4,
+      "movieTitle": "Código Negro",
+      "time": "13:45",
+      "date": "2026-08-14",
+      "room": "Sala 4",
+      "format": "2D",
+      "price": 13,
+      "availableSeats": 100
+    },
+    {
+      "id": 11,
+      "movieId": 4,
+      "movieTitle": "Código Negro",
+      "time": "17:30",
+      "date": "2026-08-14",
+      "room": "Sala 4",
+      "format": "2D",
+      "price": 13,
+      "availableSeats": 100
+    },
+    {
+      "id": 12,
+      "movieId": 4,
+      "movieTitle": "Código Negro",
+      "time": "21:00",
+      "date": "2026-08-14",
+      "room": "Sala 4",
+      "format": "2D",
+      "price": 13,
+      "availableSeats": 100
+    },
+    {
+      "id": 13,
+      "movieId": 5,
+      "movieTitle": "Iron Man",
+      "time": "14:00",
+      "date": "2026-08-14",
+      "room": "Sala 5",
+      "format": "IMAX",
+      "price": 13.5,
+      "availableSeats": 120
+    },
+    {
+      "id": 14,
+      "movieId": 5,
+      "movieTitle": "Iron Man",
+      "time": "17:15",
+      "date": "2026-08-14",
+      "room": "Sala 5",
+      "format": "IMAX",
+      "price": 13.5,
+      "availableSeats": 120
+    },
+    {
+      "id": 15,
+      "movieId": 5,
+      "movieTitle": "Iron Man",
+      "time": "20:30",
+      "date": "2026-08-14",
+      "room": "Sala 5",
+      "format": "IMAX",
+      "price": 13.5,
+      "availableSeats": 120
+    },
+    {
+      "id": 16,
+      "movieId": 6,
+      "movieTitle": "La Odisea",
+      "time": "15:30",
+      "date": "2026-08-14",
+      "room": "Sala 6",
+      "format": "2D",
+      "price": 11.5,
+      "availableSeats": 100
+    },
+    {
+      "id": 17,
+      "movieId": 6,
+      "movieTitle": "La Odisea",
+      "time": "18:45",
+      "date": "2026-08-14",
+      "room": "Sala 6",
+      "format": "2D",
+      "price": 11.5,
+      "availableSeats": 100
+    },
+    {
+      "id": 18,
+      "movieId": 6,
+      "movieTitle": "La Odisea",
+      "time": "21:45",
+      "date": "2026-08-14",
+      "room": "Sala 6",
+      "format": "2D",
+      "price": 11.5,
+      "availableSeats": 100
+    }
+  ],
+  "verificationTokens": []
 }

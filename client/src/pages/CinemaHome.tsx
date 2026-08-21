@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation as useWouterLocation } from "wouter";
-import { Film, Search, LifeBuoy, LogOut, Ticket, Sparkles, Calendar, Clock, MapPin, Languages } from "lucide-react";
+import { Film, Search, LifeBuoy, LogOut, Ticket, Sparkles, Calendar, Clock, MapPin, Languages, Trash2 } from "lucide-react";
+import { toast } from "sonner";
 import { CinematicBackground } from "../components/CinematicBackground";
 import { MovieCard } from "../components/MovieCard";
 import { SeatSelector } from "../components/SeatSelector";
@@ -23,6 +24,7 @@ export default function CinemaHome() {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isLocationOpen, setIsLocationOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [cancellingBookingId, setCancellingBookingId] = useState<number | null>(null);
   const [language, setLanguage] = useState<"es" | "en">(() =>
     localStorage.getItem("cinema_language") === "en" ? "en" : "es",
   );
@@ -36,6 +38,7 @@ export default function CinemaHome() {
         bookingTitle: "Mis Entradas y Reservas", bookingSubtitle: "Historial de butacas reservadas en Cinema Riwi",
         noBookings: "No tienes reservas activas", noBookingsText: "Explora nuestra cartelera y selecciona tus películas favoritas para apartar tus butacas.",
         seeBillboard: "Ver cartelera", confirmed: "Confirmada", seats: "Asientos", select: "Seleccionar y reservar",
+        cancelBooking: "Cancelar reserva", cancelConfirm: "¿Quieres cancelar esta reserva? Esta acción no se puede deshacer.", cancelSuccess: "Reserva cancelada correctamente", cancelError: "No fue posible cancelar la reserva",
         genres: ["Todos", "Ciencia ficción", "Suspenso", "Drama", "Acción"],
       }
     : {
@@ -45,6 +48,7 @@ export default function CinemaHome() {
         bookingTitle: "My Tickets and Bookings", bookingSubtitle: "Your reserved seats at Cinema Riwi",
         noBookings: "You have no active bookings", noBookingsText: "Explore our movies and select your favorites to reserve your seats.",
         seeBillboard: "View movies", confirmed: "Confirmed", seats: "Seats", select: "Select and book",
+        cancelBooking: "Cancel booking", cancelConfirm: "Do you want to cancel this booking? This action cannot be undone.", cancelSuccess: "Booking cancelled successfully", cancelError: "The booking could not be cancelled",
         genres: ["All", "Science Fiction", "Thriller", "Drama", "Action"],
       };
   const genreFilters = [
@@ -89,6 +93,24 @@ export default function CinemaHome() {
   const handleLogout = () => {
     localStorage.removeItem("cinema_user");
     setLocation("/login");
+  };
+
+  const handleCancelBooking = async (bookingId: number) => {
+    if (!window.confirm(copy.cancelConfirm)) return;
+
+    setCancellingBookingId(bookingId);
+    try {
+      const response = await fetch(`/api/bookings/${bookingId}`, { method: "DELETE" });
+      if (!response.ok) throw new Error("Unable to delete booking");
+
+      setBookings((currentBookings) => currentBookings.filter((booking) => booking.id !== bookingId));
+      toast.success(copy.cancelSuccess);
+    } catch (error) {
+      console.error(error);
+      toast.error(copy.cancelError);
+    } finally {
+      setCancellingBookingId(null);
+    }
   };
 
   const filteredMovies = movies.filter((m) => {
@@ -318,9 +340,21 @@ export default function CinemaHome() {
                         </div>
                       </div>
 
-                      <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+                      <div className="pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
                         <span className="text-slate-400">{copy.seats}: <strong className="text-cyan-300">{b.seats.join(", ")}</strong></span>
-                        <span className="font-bold text-white">{formatPrice(b.total, currency)}</span>
+                        <div className="flex items-center gap-3">
+                          <span className="font-bold text-white">{formatPrice(b.total, currency)}</span>
+                          <button
+                            type="button"
+                            onClick={() => handleCancelBooking(b.id)}
+                            disabled={cancellingBookingId === b.id}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/10 px-2.5 py-1.5 font-semibold text-rose-300 transition-colors hover:bg-rose-500/20 disabled:cursor-not-allowed disabled:opacity-50"
+                            title={copy.cancelBooking}
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                            <span>{cancellingBookingId === b.id ? "..." : copy.cancelBooking}</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

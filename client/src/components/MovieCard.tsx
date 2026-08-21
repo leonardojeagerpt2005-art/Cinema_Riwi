@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Star, Clock, Ticket, Film } from "lucide-react";
 import type { Currency } from "./location/currencies";
 import { formatPrice } from "./location/currencies";
@@ -25,6 +25,10 @@ interface MovieCardProps {
 
 export function MovieCard({ movie, currency, onSelect, selectLabel = "Seleccionar y Reservar" }: MovieCardProps) {
   const [videoFailed, setVideoFailed] = useState(false);
+
+  useEffect(() => {
+    setVideoFailed(false);
+  }, [movie.video]);
 
   return (
     <div className="liquid-glass rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 flex flex-col h-full">
